@@ -1,0 +1,11 @@
+{
+  "name": "vovel_web",
+  "version": "1.0.0",
+  "description": "Website for VoveL",
+  "main": "index.js",
+  "author": "Chloe Hyunah Park",
+  "license": "ISC",
+  "dependencies": {
+    "express":"4.17.1"
+  }
+}
