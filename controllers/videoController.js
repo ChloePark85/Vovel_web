@@ -1,4 +1,7 @@
-export const home = (req, res) => res.render("home", { pageTitle : "홈" });
+import { vovel } from "../db";
+export const home = (req, res) => {
+    res.render("home", { pageTitle : "홈", vovel});
+}
 
 export const search = (req, res) => {
     const {query: { keyword : searchingBy }} = req;
