@@ -8,8 +8,8 @@ export const videos = (req, res) => res.render("videos", { pageTitle : "보블�
 
 export const upload = (req, res) => res.render("upload", { pageTitle : "업로드"})
 
-export const videoDetail = (req, res) => res.render("video Detail", { pageTitle : "콘텐츠소개"})
+export const videoDetail = (req, res) => res.render("videoDetail", { pageTitle : "콘텐츠소개"})
 
-export const editVideo = (req, res) => res.render("edit Video", { pageTitle : "보블편집"})
+export const editVideo = (req, res) => res.render("editVideo", { pageTitle : "보블편집"})
 
-export const deleteVideo = (req, res) => res.render("delete Video", { pageTitle : "보블삭제"})
+export const deleteVideo = (req, res) => res.render("deleteVideo", { pageTitle : "보블삭제"})
