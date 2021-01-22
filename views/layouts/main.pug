@@ -2,11 +2,9 @@ doctype html
 
 html
     head
-        title Vovel Radio
+        title #{pageTitle} | #{siteName}
     body
-        header
-            h1 Vovel Mix
+        include ../partials/header
         main
             block content
-    footer
-        span &copy; V-label
+        include ../partials/footer

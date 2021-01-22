@@ -1,0 +1,13 @@
+header.header
+    .header__column
+        a(href=routes.home)
+            img(src='/public/images/Vovel_logo.png' alt='logo' style='width:150px;height:100px')
+    .header__column
+        form(action=routes.search, method="get")
+            input(type="text", placeholder="검색어를 입력해 보세요.", name="keyword")
+    .header__column
+        ul
+            li
+                a(href=routes.join) 회원가입
+            li
+                a(href=routes.login) 로그인
