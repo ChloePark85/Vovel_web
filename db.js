@@ -1,38 +1,19 @@
-export const videos = [
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+
+
+mongoose.connect(
+    process.env.MONGO_URL,
     {
-        id: 324393,
-        title: 'Chat Generation',
-        description: 'Here comes chat generation...',
-        views: 24,
-        videofile: "https://www.youtube.com/watch?v=whrxnr2emQA",
-        creator: {
-            id: 121212,
-            name: "V-label",
-            email: "hello@v-label.net"
-        }
-    },
-        {
-            id: 56789,
-            title: 'Chat Generation',
-            description: 'Here comes chat generation...',
-            views: 24,
-            videofile: "https://www.youtube.com/watch?v=whrxnr2emQA",
-            creator: {
-                id: 121212,
-                name: "V-label",
-                email: "hello@v-label.net"
-            }
-        },
-            {
-                id: 12345,
-                title: 'Chat Generation',
-                description: 'Here comes chat generation...',
-                views: 24,
-                videofile: "https://www.youtube.com/watch?v=whrxnr2emQA",
-                creator: {
-                    id: 121212,
-                    name: "V-label",
-                    email: "hello@v-label.net"
-                }
-    }
-]
+        useNewUrlParser: true,
+        useFindAndModify: false
+    });
+
+    const db = mongoose.connection;
+
+    const handleOpen = () => console.log("Connected to DB")
+    const handleError = () => console.log("Error on DB Connection")
+
+    db.once("open", handleOpen)
+    db.on("error", handleError);
