@@ -4,7 +4,7 @@ block content
     .form-container
         form(action=routes.upload, method="post")
             label(for="upload") 파일 업로드하기
-            input(type="file", id="upload", name="upload")
-            input(type="text", placeholder="title", name="제목")
-            input(type="text", placeholder="description", name="설명")
+            input(type="file", id="upload", name="file", required=true)
+            input(type="text", placeholder="title", name="제목", required=true)
+            input(type="text", placeholder="description", name="설명", required=true)
             input(type="submit", value="파일 업로드")

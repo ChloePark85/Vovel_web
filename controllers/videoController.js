@@ -1,15 +1,23 @@
-import { vovel } from "../db";
+import { videos } from "../db";
+import routes from "../routes";
 export const home = (req, res) => {
-    res.render("home", { pageTitle : "홈", vovel});
+    res.render("home", { pageTitle : "홈", videos});
 }
 
 export const search = (req, res) => {
     const {query: { keyword : searchingBy }} = req;
-    res.render("search", { pageTitle : "검색", searchingBy: searchingBy})
+    res.render("search", { pageTitle : "검색", searchingBy: searchingBy, videos})
 }
-export const videos = (req, res) => res.render("videos", { pageTitle : "보블목록"})
 
-export const upload = (req, res) => res.render("upload", { pageTitle : "업로드"})
+export const getUpload = (req, res) => res.render("upload", { pageTitle : "업로드"})
+
+export const postUpload = (req, res) => {
+    const {
+      body: { file, title, description }
+    } = req;
+    // To Do: Upload and save video
+    res.redirect(routes.videoDetail(324393));
+  };  
 
 export const videoDetail = (req, res) => res.render("videoDetail", { pageTitle : "콘텐츠소개"})
 

@@ -1,4 +1,4 @@
-export const vovel = [
+export const videos = [
     {
         id: 324393,
         title: 'Chat Generation',
