@@ -4,7 +4,7 @@ import Video from "../models/Video";
 
 export const home = async (req, res) => {
   try {
-    const videos = await Video.find({});
+    const videos = await Video.find({}).sort({ _id: -1 });
     res.render("home", { pageTitle : "홈", videos});
   } catch (error) {
     console.log(error)
@@ -12,9 +12,15 @@ export const home = async (req, res) => {
   }
 }
 
-export const search = (req, res) => {
+export const search = async (req, res) => {
     const {query: { keyword : searchingBy }} = req;
-    res.render("search", { pageTitle : "검색", searchingBy: searchingBy, videos})
+    let videos = [];
+    try {
+      videos = await Video.find({title: {$regex: searchingBy, $options: "i" }})
+    } catch(error){
+      console.log(error);
+    }
+    res.render("search", { pageTitle : "검색", searchingBy: searchingBy, videos })
 }
 
 export const getUpload = (req, res) => res.render("upload", { pageTitle : "업로드"})
@@ -78,6 +84,8 @@ export const deleteVideo = async (req, res) => {
   } = req;
 try {
   await Video.findOneAndRemove({_id: id})
-} catch(error){}
+} catch(error){
+  console.log(error);
+}
   res.redirect(routes.home);
 }
