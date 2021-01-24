@@ -5,6 +5,6 @@ block content
         form(action=`/videos${routes.upload}`, method="post", enctype="multipart/form-data")
             label(for="upload") 파일 업로드하기
             input(type="file", id="upload", name="videoFile", required=true, accept="video/*")
-            input(type="text", placeholder="title", name="제목", required=true)
-            input(type="text", placeholder="description", name="설명", required=true)
+            input(type="text", placeholder="제목", name="title", required=true)
+            input(type="text", placeholder="설명", name="description", required=true)
             input(type="submit", value="파일 업로드")

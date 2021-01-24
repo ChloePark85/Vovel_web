@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const VideoSchema = new mongoose.Schema({
-    fileURl: {
+    fileUrl: {
         type: String,
         required: 'File URL is required'
     },
@@ -14,7 +14,7 @@ const VideoSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    createAt: {
+    createdAt: {
         type: Date,
         default: Date.now
     },
