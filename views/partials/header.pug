@@ -1,21 +1,22 @@
 header.header
-    .header__column
-        a(href=routes.home)
-            img(src='/public/images/Vovel_logo.png' alt='logo' style='width:150px;height:100px')
-    .header__column
-        form(action=routes.search, method="get")
-            input(type="text", placeholder="검색어를 입력해 보세요.", name="keyword")
-    .header__column
-        ul
-            if !user.isAuthenticated
-                li
-                    a(href=routes.join) 회원가입
-                li
-                    a(href=routes.login) 로그인
-            else 
-                li
-                    a(href = `/videos${routes.upload}`) 업로드하기
-                li
-                    a(href = routes.userDetail(user.id)) 마이페이지
-                li
-                    a(href = routes.logout) 로그아웃
+    .header__wrapper
+        .header__column
+            a(href=routes.home)
+                img(src='/public/images/Vovel_logo.png' alt='logo' style='width:70px;height:50px')
+        .header__column
+            form(action=routes.search, method="get")
+                input(type="text", placeholder="검색어를 입력해 보세요.", name="keyword")
+        .header__column
+            ul
+                if !user.isAuthenticated
+                    li
+                        a(href=routes.join) 회원가입
+                    li
+                        a(href=routes.login) 로그인
+                else 
+                    li
+                        a(href = `/videos${routes.upload}`) 업로드하기
+                    li
+                        a(href = routes.userDetail(user.id)) 마이페이지
+                    li
+                        a(href = routes.logout) 로그아웃
