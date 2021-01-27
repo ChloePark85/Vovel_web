@@ -32,6 +32,10 @@ app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);  
 app.use(routes.videos, videoRouter);
 app.use("/public", express.static('public'));
+// app.disable('etag');
+// app.use(express.static('public', {
+//     maxAge: 86400 * 1000 // 24시간
+// }))
 
 
 export default app;
