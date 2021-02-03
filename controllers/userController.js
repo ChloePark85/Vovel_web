@@ -1,6 +1,7 @@
 import routes from "../routes";
+import User from "../models/User";
 
-export const getJoin = (req, res) => {
+export const getJoin = async (req, res) => {
     res.render("join", { pageTitle: "회원가입"});
 }
 export const postJoin = (req, res) => {
@@ -11,6 +12,11 @@ export const postJoin = (req, res) => {
         res.status(400)
         res.render("join", { pageTitle: "회원가입"});
     } else {
+        const model = await User.create({
+            name,
+            email
+        });
+        await User.register(user, password)
         res.redirect(routes.home)
     }
 }
