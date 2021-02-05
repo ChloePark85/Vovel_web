@@ -12,11 +12,14 @@ export const postJoin = (req, res) => {
         res.status(400)
         res.render("join", { pageTitle: "회원가입"});
     } else {
-        const model = await User.create({
+        const model = await User({
             name,
             email
         });
-        await User.register(user, password)
+        await User.register(user, password);
+    } catch(error){
+        console.log(error);
+    }
         res.redirect(routes.home)
     }
 }
